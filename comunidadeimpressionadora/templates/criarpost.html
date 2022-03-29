@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <form method="POST" action="" class="border p-4 m-2" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <fieldset>
+                <legend class="text-center font-weight-bold"><b>Editar Perfil</b></legend>
+                <div class="form-group">
+                    {{ form.titulo.label(class="form-control-label") }}
+
+                    {% if form.titulo.errors %}
+                        {{ form.titulo(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for erro in form.titulo.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.titulo(class="form-control") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.corpo.label(class="form-control-label") }}
+
+                    {% if form.corpo.errors %}
+                        {{ form.corpo(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for erro in form.corpo.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.corpo(class="form-control") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            {{ form.botao_submit(class="btn btn-primary mt-2") }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
