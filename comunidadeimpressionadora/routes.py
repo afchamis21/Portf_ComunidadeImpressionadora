@@ -117,6 +117,8 @@ def atualizar_cursos(form):
         if 'curso_' in campo.name:
             if campo.data:
                 lista_cursos.append(campo.label.text)
+    if not lista_cursos:
+        lista_cursos.append('Não Informado')
     return ';'.join(lista_cursos)
 
 
